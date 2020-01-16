@@ -1,9 +1,9 @@
 # YOLOv3 + Deep_SORT
 
-<img src="https://github.com/yehengchen/ObjectDetection/blob/master/img/output_49.gif" width="40%" height="40%"> <img src="https://github.com/yehengchen/Object-Detection-and-Tracking/blob/master/OneStage/yolo/yolo_img/TownCentreXVID_output_ss.gif" width="40%" height="40%">
+<img src="https://github.com/yehengchen/video_demo/blob/master/video_demo/output.gif" width="40%" height="40%"> <img src="https://github.com/yehengchen/video_demo/blob/master/video_demo/TownCentreXVID_output.gif" width="40%" height="40%">
 <img src="https://github.com/yehengchen/Object-Detection-and-Tracking/blob/master/OneStage/yolo/yolo_img/output_person_315_1120_s.gif" width="40%" height="40%"> <img src="https://github.com/yehengchen/Object-Detection-and-Tracking/blob/master/img/output_car_143.gif" width="40%" height="40%">
 
-__Object Tracking & Counting Demo - [[YouTube]](https://www.youtube.com/watch?v=ALw3OfrGWGo) [[BiliBili_V1]](https://www.bilibili.com/video/av55778717) [[BiliBili_V2]](https://www.bilibili.com/video/av59454144/?p=1)  [[Chinese Version]](https://blog.csdn.net/weixin_38107271/article/details/96741706)__
+__Object Tracking & Counting Demo - [[YouTube]](https://www.youtube.com/watch?v=ALw3OfrGWGo) [[BiliBili_V1]](https://www.bilibili.com/video/av55778717) [[BiliBili_V2]](https://www.bilibili.com/video/av59547404)  [[Chinese Version]](https://blog.csdn.net/weixin_38107271/article/details/96741706)__
 ## Requirement
 __Development Environment: [Deep-Learning-Environment-Setup](https://github.com/yehengchen/Ubuntu-16.04-Deep-Learning-Environment-Setup)__ 
 
@@ -24,17 +24,21 @@ It uses:
 
 ## Quick Start
 
+__0.Requirements__
+
+    pip install -r requirements.txt
+    
 __1. Download the code to your computer.__
     
     git clone https://github.com/yehengchen/Object-Detection-and-Tracking.git
     
-__2. Download [[yolov3.weights]](https://pjreddie.com/media/files/yolov3.weights)__ and place it in `yolov3_sort/yolo-obj/`
+__2. Download [[yolov3.weights]](https://pjreddie.com/media/files/yolov3.weights)__ and place it in `deep_sort_yolov3/model_data/`
 
-*__Here you can download my trained [[yolo_cc_0612.h5]](https://drive.google.com/open?id=1MJBmDxMgPDTno-5DRvnpVth10Rnu-DWO) weights for detection person/car/bicycle,etc.__*
+*Here you can download my trained [[yolo-spp.h5]](https://pan.baidu.com/s/1DoiifwXrss1QgSQBp2vv8w&shfl=shareset) - `t13k` weights for detecting person/car/bicycle,etc.*
 
 __3. Convert the Darknet YOLO model to a Keras model:__
 ```
-$ python convert.py yolov3.cfg yolov3.weights model_data/yolo.h5
+$ python convert.py model_data/yolov3.cfg model_data/yolov3.weights model_data/yolo.h5
 ``` 
 __4. Run the YOLO_DEEP_SORT:__
 
@@ -44,9 +48,9 @@ $ python main.py -c [CLASS NAME] -i [INPUT VIDEO PATH]
 $ python main.py -c person -i ./test_video/testvideo.avi
 ```
 
-__5. Can change [deep_sort_yolov3/yolo.py] `__Line 100__` to your tracking target__
+__5. Can change [deep_sort_yolov3/yolo.py] `__Line 100__` to your tracking object__
 
-*DeepSORT pre-trained weights using people-ReID datasets only for person, other targets is not good*
+*DeepSORT pre-trained weights using people-ReID datasets only for person*
 ```
     if predicted_class != args["class"]:
                continue

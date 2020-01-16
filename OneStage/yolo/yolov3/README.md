@@ -127,8 +127,8 @@ __Run *[voc_label.py](https://github.com/yehengchen/Object-Detection-and-Trackin
     ./darknet detector train obj_detect/cfg/obj_voc.data obj_detect/cfg/yolov3-voc.cfg darknet53.conv.74 2>1 | tee visualization/train_yolov3.log
 
 #### Log Visualization - 训练可视化
+__在 extract_log.py 中修改 train_yolov3.log 路径__
     
-    # 在 extract_log.py 中修改 train_yolov3.log 路径
     python3 extract_log.py
     python3 visualization_loss.py
     python3 visualization_iou.py
@@ -164,7 +164,7 @@ For details __[when-should-i-stop-training](https://github.com/AlexeyAB/darknet#
     1452.927612： 是总体的Loss(损失）
 ***
 
-##  Train a model on VOC2007 or VOC2012
+##  Train a model on VOC2007 / VOC2012 / COCO2017
 
 ### VOC2007 Data
 
@@ -173,6 +173,14 @@ For details __[when-should-i-stop-training](https://github.com/AlexeyAB/darknet#
 ### VOC2012 Data
 
 * Download the [training/validation data](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar) (2GB tar file)
+
+### COCO2017 Data
+
+* Download the [2017 Train images](http://images.cocodataset.org/zips/train2017.zip) [118K/18GB]
+* Download the [2017 Val images](http://images.cocodataset.org/zips/val2017.zip) [5K/1GB]
+* Download the [2017 Test images](http://images.cocodataset.org/zips/test2017.zip) [41K/6GB]
+* COCO API/[PythonAPI](https://github.com/cocodataset/cocoapi/tree/master/PythonAPI)
+
 ***
 
 ## TEST
